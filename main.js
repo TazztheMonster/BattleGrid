@@ -3,15 +3,15 @@ var doc = app.activeDocument;
 
 function updateInputs() {    
   console.log("Updating inputs");
- 
+    
   var numRows = parseInt(document.getElementById('numRows').value);
   var numCols = parseInt(document.getElementById('numCols').value);
   var boxSize = parseInt(document.getElementById('boxSize').value);
 
-  if (this == dialog.numRowsInput) {
+  if (this.id === 'numRows') {
       numCols = Math.ceil(doc.width / doc.height * numRows);
       boxSize = doc.height / numRows;
-  } else if (this == dialog.numColsInput) {
+  } else if (this.id === 'numCols') {
       numRows = Math.ceil(doc.height / doc.width * numCols);
       boxSize = doc.width / numCols;
   } else {
@@ -19,14 +19,14 @@ function updateInputs() {
       numCols = Math.ceil(doc.width / boxSize);
   }
 
-  dialog.numRowsInput.text = numRows;
-  dialog.numColsInput.text = numCols;
-  dialog.boxSizeInput.text = boxSize;
+  document.getElementById('numRows').value = numRows;
+  document.getElementById('numCols').value = numCols;
+  document.getElementById('boxSize').value = boxSize;
 }
 
 function addGrid() {
   console.log("Adding grid");
-    
+
   var numRows = parseInt(document.getElementById('numRows').value);
   var numCols = parseInt(document.getElementById('numCols').value);
   var boxSize = parseInt(document.getElementById('boxSize').value);
@@ -52,6 +52,10 @@ function addGrid() {
 }
 
 document.getElementById("btnGenerate").addEventListener("click", function() {
-  console.log("Button clicked");
-  addGrid();
+    console.log("Button clicked");
+    addGrid();
+});
+
+['numRows', 'numCols', 'boxSize'].forEach(function(id) {
+  document.getElementById(id).addEventListener('change', updateInputs);
 });
