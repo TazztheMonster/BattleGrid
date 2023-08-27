@@ -4,9 +4,9 @@ var doc = app.activeDocument;
 function updateInputs() {    
   console.log("Updating inputs");
  
-  var numRows = parseInt(dialog.numRowsInput.text);
-  var numCols = parseInt(dialog.numColsInput.text);
-  var boxSize = parseInt(dialog.boxSizeInput.text);
+  var numRows = parseInt(document.getElementById('numRows').value);
+  var numCols = parseInt(document.getElementById('numCols').value);
+  var boxSize = parseInt(document.getElementById('boxSize').value);
 
   if (this == dialog.numRowsInput) {
       numCols = Math.ceil(doc.width / doc.height * numRows);
@@ -26,9 +26,10 @@ function updateInputs() {
 
 function addGrid() {
   console.log("Adding grid");
-  var numRows = document.getElementById('numRows').value;
-  var numCols = document.getElementById('numCols').value;
-  var boxSize = document.getElementById('boxSize').value;
+    
+  var numRows = parseInt(document.getElementById('numRows').value);
+  var numCols = parseInt(document.getElementById('numCols').value);
+  var boxSize = parseInt(document.getElementById('boxSize').value);
 
   var layer = doc.artLayers.add();
   layer.name = "grid";
@@ -51,6 +52,6 @@ function addGrid() {
 }
 
 document.getElementById("btnGenerate").addEventListener("click", function() {
-    console.log("Button clicked");
-    addGrid();
+  console.log("Button clicked");
+  addGrid();
 });
