@@ -1,0 +1,7 @@
+{
+  "name": "battlegrid",
+  "version": "0,0,1",
+  "description": "Generate grids for Battlemaps",
+  "author": "Felix Pape",
+  "license": "Apache-2.0"
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Battlemap Grid</title>
+    <style>
+        /* Add CSS styles here */
+    </style>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css">   
+</head>
+<body>
+    <h1>Create Battlemap Grid</h1>
+    <label>Number of Rows:</label>
+    <input type="number" id="numRows" value="10" onchange="updateInputs()" />
+    <label>Number of Columns:</label>
+    <input type="number" id="numCols" value="10" onchange="updateInputs()" />
+    <label>Size of Boxes (in pixels):</label>
+    <input type="number" id="boxSize" value="50" onchange="updateInputs()" />
+    <sp-button id="btnGenerate">Create Grid</sp-button>
+</body>
+</html>
