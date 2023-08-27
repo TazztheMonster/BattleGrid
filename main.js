@@ -1,4 +1,9 @@
+var csInterface = new CSInterface();
+var doc = app.activeDocument;
+
 function updateInputs() {    
+  console.log("Updating inputs");
+ 
   var numRows = parseInt(dialog.numRowsInput.text);
   var numCols = parseInt(dialog.numColsInput.text);
   var boxSize = parseInt(dialog.boxSizeInput.text);
@@ -20,11 +25,11 @@ function updateInputs() {
 }
 
 function addGrid() {
+  console.log("Adding grid");
   var numRows = document.getElementById('numRows').value;
   var numCols = document.getElementById('numCols').value;
   var boxSize = document.getElementById('boxSize').value;
 
-  var csInterface = new CSInterface();
   var layer = doc.artLayers.add();
   layer.name = "grid";
 
@@ -45,6 +50,7 @@ function addGrid() {
   }
 }
 
-
-
-document.getElementById("btnGenerate").addEventListener("click", addGrid);
+document.getElementById("btnGenerate").addEventListener("click", function() {
+    console.log("Button clicked");
+    addGrid();
+});
